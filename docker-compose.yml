@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: calcsite
+    image: ckolp/basic-calc-site
+    environment:
+      PYTHONDONTWRITEBYTECODE: 1
+      PYTHONUNBUFFERED: 1
+    command: python manage.py runserver 0.0.0.0:8000
+    # volumes:
+    #   - .:/code
+    #   - ./hello.txt:/opt/hello.txt
+    ports:
+      - "8000:8000"
+    build:
+      context: ./
+      dockerfile: Dockerfile
